@@ -1,17 +1,17 @@
-import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/slice/store";
+import { Route } from "react-router-dom";
+import Home from "@/pages/Home";
+import Setting from "@/pages/Setting";
+import ProtectedRoute from "./ProtectedRoute";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export default function ProtectedRoute({ children }: Props) {
-  const token = useSelector((state: RootState) => state.auth.token);
-
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return <>{children}</>;
+function ProtectedRoutes() {
+  return (
+    <>
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/setting" element={<Setting />} />
+      </Route>
+    </>
+  );
 }
+
+export default ProtectedRoutes;
