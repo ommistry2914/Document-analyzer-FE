@@ -26,7 +26,7 @@ import { logoutUser } from "@/slice/authSlice"
 import type { AppDispatch } from "@/slice/store"
 
 interface NavUserProps {
-  user: User
+  user: User | null
 }
 
 export function NavUser({ user }: NavUserProps) {
@@ -37,6 +37,9 @@ export function NavUser({ user }: NavUserProps) {
   const handleLogout = async () => {
     await dispatch(logoutUser())
     navigate("/login")
+  }
+  if (!user) {
+    return null // or render a "Login" button
   }
 
   const fullName = `${user.firstName} ${user.lastName}`.trim()

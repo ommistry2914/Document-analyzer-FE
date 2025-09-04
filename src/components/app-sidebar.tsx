@@ -16,12 +16,12 @@ import { routes } from "@/data/sidebarData"
 import type { User } from "@/slice/types"
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  user: User
+  user: User | null
 }
 
 export function AppSidebar({ user, ...props }: AppSidebarProps) {
   const location = useLocation()
-
+console.log("user in app-sidebar",user);
   return (
     <Sidebar {...props}>
       <SidebarHeader>

@@ -6,7 +6,7 @@ import ProtectedRoutes from "./ProtectedRoute";
 
 function AppRoutes() {
   const user = useSelector((state: RootState) => state.auth.user);
-
+  console.log("user in approutes",user);
   return (
     <Routes>
       {!user ? (
