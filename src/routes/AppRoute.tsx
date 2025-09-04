@@ -11,12 +11,12 @@ function AppRoutes() {
     <Routes>
       {!token ? (
         <>
-          <PublicRoutes />
+           {PublicRoutes()}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </>
       ) : (
         <>
-          <ProtectedRoutes />
+          {ProtectedRoutes()}
           <Route path="*" element={<Navigate to="/" replace />} />
         </>
       )}

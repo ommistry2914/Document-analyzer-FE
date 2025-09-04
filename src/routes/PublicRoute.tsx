@@ -1,16 +1,14 @@
 import { Route } from "react-router-dom";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
-import PublicRoute from "./PublicRoute";
+import AuthPage from "@/pages/AuthPage";
 
 function PublicRoutes() {
   return (
-    <>
-      <Route element={<PublicRoute />}>
+      <Route element={<AuthPage />} key="auth">
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
-    </>
   );
 }
 

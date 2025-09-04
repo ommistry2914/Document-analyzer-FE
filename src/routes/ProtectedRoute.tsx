@@ -1,16 +1,14 @@
 import { Route } from "react-router-dom";
 import Home from "@/pages/Home";
 import Setting from "@/pages/Setting";
-import ProtectedRoute from "./ProtectedRoute";
+import Layout from "@/Layout";
 
 function ProtectedRoutes() {
   return (
-    <>
-      <Route element={<ProtectedRoute />}>
+      <Route element={<Layout/>}>
         <Route path="/" element={<Home />} />
         <Route path="/setting" element={<Setting />} />
       </Route>
-    </>
   );
 }
 
