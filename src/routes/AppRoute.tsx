@@ -5,11 +5,11 @@ import PublicRoutes from "./PublicRoute";
 import ProtectedRoutes from "./ProtectedRoute";
 
 function AppRoutes() {
-  const token = useSelector((state: RootState) => state.auth.token);
+  const user = useSelector((state: RootState) => state.auth.user);
 
   return (
     <Routes>
-      {!token ? (
+      {!user ? (
         <>
            {PublicRoutes()}
           <Route path="*" element={<Navigate to="/login" replace />} />
